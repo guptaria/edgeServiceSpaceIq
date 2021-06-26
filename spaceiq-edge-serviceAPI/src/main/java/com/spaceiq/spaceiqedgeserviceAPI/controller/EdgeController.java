@@ -36,29 +36,29 @@ public class EdgeController {
 
     @GetMapping("/employee/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Employee getEmployeeById(@PathVariable int id)
-    {
+    public Employee getEmployeeById(@PathVariable int id) {
         return employeeClient.getEmployeeById(id);
     }
+
+
+//    @PutMapping("/employee/{id}")
+//    public Employee updateEmployee(@PathVariable int id,@RequestBody Employee employeeDetails){
+//        return employeeClient.getEmployeeById(id);
+//    }
 
 
     @PutMapping("/employee/{id}")
-    public Employee updateEmployee(@PathVariable int id,@RequestBody Employee employeeDetails){
-        return employeeClient.getEmployeeById(id);
+    public void updateEmployee(@RequestBody Employee employeeDetails, @PathVariable int id) {
+
+        employeeClient.updateEmployee(employeeDetails,id);
     }
 
-
-//            return employeeClient.updateEmployee();
-
-//        if (employeeDetails.getId() == null) {
-//            employeeDetails.setId(id);
-//        }
-
-//        if (employeeDetails.getId() != id) {
-//            throw new IllegalArgumentException("Employee ID must match parameter given");
-//        }
-//        employeeClient.updateEmployee(employeeDetails);
-    }
+}
 
 
 
+//    @PutMapping(value = "{id}")
+//    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+//    public void updateCustomerById(@RequestBody Customer customer, @PathVariable int id) {
+//        customerServiceClient.updateCustomer(customer, id);
+//    }

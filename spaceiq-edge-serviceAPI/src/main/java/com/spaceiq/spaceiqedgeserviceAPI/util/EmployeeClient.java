@@ -25,10 +25,13 @@ public interface EmployeeClient {
     public Employee getEmployeeById(@PathVariable int id);
 
     @PutMapping("/api/employee/{id}")
-    public Employee updateEmployee(@PathVariable int id,@RequestBody Employee employee);
+    public void updateEmployee(@RequestBody Employee employeeDetails,@PathVariable int id);
 
     }
 
+
+//    @RequestMapping(value = “/customer”, method = RequestMethod.PUT)
+//    public void updateCustomer(@RequestBody Customer customer, @PathVariable Integer id);
 
 
 
